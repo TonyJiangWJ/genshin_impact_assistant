@@ -16,6 +16,14 @@ The aim of GIA is: let the program play Genshin, and you just need to selected c
 
 </div>
 
+# 源码安装备注
+
+- 文档中介绍的 `git submodule init` 之后如果有个别模块初始化失败，可以去仓库的assets下找到对应仓库直接下载源代码，如果使用 `git clone` 下载子目录，需要手动删除子目录下的 `.git` 目录，否则后续安装会复制 `.git` 文件夹导致报错
+- 如果使用了conda虚拟环境，执行 `python setup install` 会报错 `win32gui` 相关报错，需要执行一下 `python.exe ${path_to_env}/Scripts/pywin32_postinstall.py -install`
+- 如果未使用虚拟环境，需要执行一下 `python.exe Scripts/pywin32_postinstall.py -install`
+- 部分逻辑执行有问题可以尝试自己在源代码中添加日志，然后修改对应代码逻辑。
+
+
 # General Introduction 基本介绍
 A Genshin automatic operation assistance based on image recognition and simulated keyboard operation. Does not involve not-allowed operation.  
 基于图像识别的原神自动操作辅助.使用图片识别与模拟键盘操作,不涉及违规操作.
