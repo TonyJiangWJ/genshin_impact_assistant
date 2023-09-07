@@ -62,14 +62,16 @@ class DomainTask(TaskTemplate):
         cap_area = asset.AreaDomainSwitchChallenge.position
         itt.delay(1,comment="genshin animation")
         self.domain_stage_name = self._domain_text_process(self.domain_stage_name)
+        logger.info(f"target stage name {self.domain_stage_name}")
         p1 = ocr.get_text_position(itt.capture(jpgmode=0, posi=cap_area), self.domain_stage_name,
                                    cap_posi_leftup=cap_area[:2],
                                    text_process = self._domain_text_process,
                                    mode=CONTAIN_MATCHING,
                                    extract_white_threshold=254)
         if p1 != -1:
-            if len(p1)>1:
-                p1 = p1[0]
+            # if len(p1)>1:
+            #     p1 = p1[0]
+            logger.info(f"position {str(p1)}")
             itt.move_and_click([p1[0] + 5, p1[1] + 5], delay=1)
         else:
             texts = ocr.get_all_texts(itt.capture(jpgmode=0, posi=cap_area))
