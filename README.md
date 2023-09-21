@@ -22,6 +22,7 @@ The aim of GIA is: let the program play Genshin, and you just need to selected c
 - 如果使用了conda虚拟环境，执行 `python setup install` 会报错 `win32gui` 相关报错，需要执行一下 `python.exe ${path_to_env}/Scripts/pywin32_postinstall.py -install`
 - 如果未使用虚拟环境，需要执行一下 `python.exe Scripts/pywin32_postinstall.py -install`
 - 部分逻辑执行有问题可以尝试自己在源代码中添加日志，然后修改对应代码逻辑。
+- 需要使用管理员权限启动终端，执行 `python .\genshin_assistant.py` 启动脚本。退出脚本可以使用如下命令直接关闭：`Get-Process -Name "python" | Stop-Process -Force`
 
 
 # General Introduction 基本介绍

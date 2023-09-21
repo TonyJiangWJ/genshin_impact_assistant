@@ -129,6 +129,7 @@ class PaddleOcrFastDeploy():
             img = extract_white_letters(img, threshold = extract_white_threshold)
         res = self.analyze(img)
         indexes = self.find_text(res,text,mode=mode,text_process=text_process)
+        logger.debug(f"find indexes: {str(indexes)}")
         for i in indexes:
             # left up - right down 
             # docs from https://github.com/PaddlePaddle/FastDeploy/blob/develop/docs/api/vision_results/ocr_result_CN.md
@@ -147,7 +148,7 @@ class PaddleOcrFastDeploy():
                                     ]
                                     )
 
-
+        logger.debug(f'ocr ret_position: {str(ret_position)}')
         if len(ret_position)==0:
             return -1
         elif len(ret_position)==1:
