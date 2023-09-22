@@ -229,7 +229,9 @@ class FindingTree(FlowTemplate):
         else:
             logger.debug("未找到入口火炬位置,旋转视角")
             movement.cview(15)
-            self.align_to_gate()
+            if self.align_to_tree():
+                return True
+            return self.align_to_gate()
 
     def find_entry_fire(self):
         cap = itt.capture(jpgmode=0)
